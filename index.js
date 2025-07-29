@@ -3,7 +3,9 @@ const socket = require("socket.io");
 const http = require("http");
 const { Chess } = require("chess.js");
 const path = require("path");
+const dotenv = require("dotenv");
 
+dotenv.config();
 const app = express();
 
 const server = http.createServer(app);
@@ -62,6 +64,7 @@ io.on("connection", function (uniquesocket) {
   });
 });
 
-server.listen(3000, function () {
-  console.log("Listening on PORT: 3000");
+const PORT = process.env.PORT;
+server.listen(PORT, function () {
+  console.log("Listening on PORT: ", PORT);
 });
