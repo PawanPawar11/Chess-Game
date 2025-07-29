@@ -38,6 +38,8 @@ npm start
 - 🔄 **Live Updates:** Moves are validated and broadcast instantly across connected clients
 - 🚀 **Deployment:** Hosted on Render
 
+## 📊 Architecture & Flow
+
 ![Architecture](/assets/architecture.png)
 
 Architecture
