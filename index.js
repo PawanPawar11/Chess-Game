@@ -3,7 +3,6 @@ const socket = require("socket.io");
 const http = require("http");
 const { Chess } = require("chess.js");
 const path = require("path");
-const { title } = require("process");
 
 const app = express();
 
@@ -22,7 +21,7 @@ app.get("/", (req, res) => {
 });
 
 io.on("connection", function (uniquesocket) {
-  console.log("connected");
+  console.log("User Connected");
 
   if (!players.white) {
     players.white = uniquesocket.id;
@@ -53,16 +52,16 @@ io.on("connection", function (uniquesocket) {
         io.emit("move", move);
         io.emit("boardState", chess.fen());
       } else {
-        console.log("Invalid move : ", move);
-        uniquesocket.emit("invalidMove", move);
+        console.log("Invalid Move: ", move);
+        uniquesocket.emit("Invalid Move: ", move);
       }
     } catch (error) {
-      console.log(error);
-      uniquesocket.emit("Invalid move : ", move);
+      console.log(error.message);
+      uniquesocket.emit("Invalid Move: ", move);
     }
   });
 });
 
 server.listen(3000, function () {
-  console.log("listening on http://localhost");
+  console.log("Listening on PORT: 3000");
 });
