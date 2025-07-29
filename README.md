@@ -28,7 +28,7 @@ npm install
 npm start
 ```
 
-# 🧱 Tech Stack Overview – Chess Game
+# 🧱 Tech Stack Overview
 
 - 🌐 **Tech Stack:** Node.js, Express.js, EJS, CSS, JavaScript
 - ♟️ **Chess Logic:** Powered by the chess.js library
